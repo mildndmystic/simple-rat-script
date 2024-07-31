@@ -3,7 +3,7 @@ It works by disabling Windows components, making it difficult for the user to de
 
 The following Windows components are disabled:
 
-<a href="#"><button>• UAC</button></a>
-<a href="#"><button>• Run Command</button></a>
-<a href="#"><button>• Task Manager</button></a>
+<a href="#"><button>• UAC</button></a><br>
+<a href="#"><button>• Run Command</button></a><br>
+<a href="#"><button>• Task Manager</button></a><br>
 <a href="#"><button>• Registry Editor</button></a>
