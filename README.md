@@ -3,7 +3,15 @@ It works by disabling Windows components, making it difficult for the user to de
 
 The following Windows components are disabled:
 
-<a href="#"><button>• UAC</button></a><br>
-<a href="#"><button>• Run Command</button></a><br>
-<a href="#"><button>• Task Manager</button></a><br>
-<a href="#"><button>• Registry Editor</button></a>
+<a href="#" style="text-decoration: none; color: inherit;">
+    <button style="border: none; background: none; cursor: pointer;">• UAC</button>
+</a><br>
+<a href="#" style="text-decoration: none; color: inherit;">
+    <button style="border: none; background: none; cursor: pointer;">• Run Command</button>
+</a><br>
+<a href="#" style="text-decoration: none; color: inherit;">
+    <button style="border: none; background: none; cursor: pointer;">• Task Manager</button>
+</a><br>
+<a href="#" style="text-decoration: none; color: inherit;">
+    <button style="border: none; background: none; cursor: pointer;">• Registry Editor</button>
+</a>
