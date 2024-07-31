@@ -17,6 +17,7 @@ Remember, you won't be able to use Task Manager or Run after running the script,
 
 It also includes a .vbs file (Visual Basic Script) to monitor and kill system processes in the background, preventing the reversion of the commands used by the .bat script.  
 To edit which processes will be monitored and killed, you can edit the .vbs file in Notepad or any IDE, such as VS Code.  
+It is not advisable to remove the default values shown in the picture below. (mmc.exe is for Local Group Policy Editor)
 ![Screenshot 2024-07-31 202525](https://github.com/user-attachments/assets/492dd4f5-b186-41d8-b1c9-2cd5d72ca42c)
 
 These files are for educational purposes only. Do not use them for other purposes!
