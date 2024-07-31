@@ -8,7 +8,7 @@ The following Windows components are disabled:
 • Task Manager  
 • Registry Editor  
 • Notification Suppress (part of Windows Defender)  
-• Windows Defender Real-Time Protection
+• Windows Defender Real-Time Protection  
 • Smart Screen (part of Windows Defender, will be deleted instead of disabled)  
 
 Simply run this script first, then install the RAT on the victim's PC, and voila!  
