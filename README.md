@@ -13,4 +13,10 @@ The following Windows components are disabled:
 
 Simply run this script first, then install the RAT on the victim's PC, and voila!  
 Tip: If the RAT has problems (e.g., missing a module in Python) and you want to delete it, you can use File Explorer to find and delete the RAT.  
-Remember, you won't be able to use Task Manager or Run after running the script, so test the RAT first in a VM to make sure it works.
+Remember, you won't be able to use Task Manager or Run after running the script, so test the RAT first in a VM to make sure it works.  
+
+It also includes a .vbs file (Visual Basic Script) to monitor and kill system processes in the background, preventing the reversion of the commands used by the .bat script.  
+To edit which processes will be monitored and killed, you can edit the .vbs file in Notepad or any IDE, such as VS Code.  
+![Screenshot 2024-07-31 202525](https://github.com/user-attachments/assets/492dd4f5-b186-41d8-b1c9-2cd5d72ca42c)
+
+These files are for educational purposes only. Do not use them for other purposes!
