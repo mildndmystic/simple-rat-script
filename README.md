@@ -3,7 +3,7 @@ It works by disabling Windows components, making it difficult for the user to de
 
 The following Windows components are disabled:
 
-[![UAC](https://img.shields.io/badge/UAC-disabled-red)](#)
-[![Run Command](https://img.shields.io/badge/Run%20Command-disabled-red)](#)
-[![Task Manager](https://img.shields.io/badge/Task%20Manager-disabled-red)](#)
-[![Registry Editor](https://img.shields.io/badge/Registry%20Editor-disabled-red)](#)
+<a href="#"><button>• UAC</button></a>
+<a href="#"><button>• Run Command</button></a>
+<a href="#"><button>• Task Manager</button></a>
+<a href="#"><button>• Registry Editor</button></a>
