@@ -3,7 +3,7 @@ It works by disabling Windows components, making it difficult for the user to de
 
 The following Windows components are disabled:
 
-• UAC
-• Run Command
-• Task Manager
+• UAC  
+• Run Command  
+• Task Manager  
 • Registry Editor
