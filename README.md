@@ -16,6 +16,8 @@ Tip: If the RAT has problems (e.g., missing a module in Python) and you want to 
 Remember, you won't be able to use Task Manager or Run after running the script, so test the RAT first in a VM to make sure it works.  
 
 It also includes a .vbs file (Visual Basic Script) to monitor and kill system processes in the background, preventing the reversion of the commands used by the .bat script.  
+If you want to run the script at start-up, move the vbs file into %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup or via Run command and type "shell::startup".  
+
 To edit which processes will be monitored and killed, you can edit the .vbs file in Notepad or any IDE, such as VS Code.  
 It is not advisable to remove the default values shown in the picture below. (mmc.exe is for Local Group Policy Editor)  
 
