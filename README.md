@@ -1,6 +1,6 @@
 # simple-rat-script
 
-https://github.com/user-attachments/assets/96d5d497-34f7-4a50-8949-aed11ffd936f
+<video src='https://github.com/mildndmystic/simple-rat-script/blob/main/demonstration.mp4'></video>
 
 A simple .bat file (Batch File Script) used to run RATs (Remote Access Trojans) smoothly on the victim's PC.  
 It works by disabling Windows components, making it difficult for the user to delete the RAT from the victim's PC.
