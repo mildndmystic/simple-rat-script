@@ -1,4 +1,6 @@
-# README
+# simple-rat-script
+
+https://github.com/user-attachments/assets/96d5d497-34f7-4a50-8949-aed11ffd936f
 
 A simple .bat file (Batch File Script) used to run RATs (Remote Access Trojans) smoothly on the victim's PC.  
 It works by disabling Windows components, making it difficult for the user to delete the RAT from the victim's PC.
@@ -10,7 +12,7 @@ It works by disabling Windows components, making it difficult for the user to de
 - Task Manager  
 - Registry Editor  
 - Notification Suppress (part of Windows Defender)  
-- Windows Defender Real-Time Protection  
+- Windows Defender Real-Time Protection (attempting to disable via "sc")
 - Smart Screen (part of Windows Defender, will be deleted instead of disabled)  
 
 ## How to use this script?
