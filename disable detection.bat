@@ -72,7 +72,7 @@ if %errorlevel% neq 0 (
 )
 
 timeout /t 1 >NUL
-echo Trying to stop windefend . . . 
+echo Attempting to stop windefend . . . 
 echo,
 
 timeout /t 1 >NUL
@@ -94,7 +94,7 @@ if %errorlevel% neq 0 (
 )
 
 timeout /t 1 >NUL
-echo Trying to delete windefend . . . 
+echo Attempting to delete windefend . . . 
 echo,
 
 timeout /t 1 >NUL
@@ -146,18 +146,100 @@ if %errorlevel% neq 0 (
 )
 
 timeout /t 1 >NUL
+echo Attempting to disable core protections in Windows Defender . . . 
+echo,
+
+timeout /t 1 >NUL
+powershell.exe -command "Add-MpPreference -ExclusionExtension '*'" > NUL 2>&1
+if %errorlevel% neq 0 (
+    echo Error: Failed to add exclusions for all file extensions.
+) else (
+    echo Successfully added exclusions for all file extensions.
+)
+
+timeout /t 1 >NUL
+powershell.exe -command "Set-MpPreference -EnableControlledFolderAccess Disabled" > NUL 2>&1
+if %errorlevel% neq 0 (
+    echo Error: Failed to disable Controlled Folder Access.
+) else (
+    echo Successfully disabled Controlled Folder Access.
+)
+
+timeout /t 1 >NUL
+powershell.exe -command "Set-MpPreference -PUAProtection disable" > NUL 2>&1
+if %errorlevel% neq 0 (
+    echo Error: Failed to disable Potentially Unwanted Application.
+) else (
+    echo Successfully disabled Potentially Unwanted Application.
+)
+
+timeout /t 1 >NUL
+powershell.exe -command "Set-MpPreference -HighThreatDefaultAction 6 -Force"  > NUL 2>&1
+if %errorlevel% neq 0 (
+    echo Error: Failed to set the default actions for high-threat detections to Allow.
+) else (
+    echo Successfully set the default actions for high-threat detections to Allow.
+)
+
+timeout /t 1 >NUL
+powershell.exe -command "Set-MpPreference -ModerateThreatDefaultAction 6 -Force" > NUL 2>&1
+if %errorlevel% neq 0 (
+    echo Error: Failed to set the default actions for moderate-threat detections to Allow.
+) else (
+    echo Successfully set the default actions for moderate-threat detections to Allow.
+)
+
+timeout /t 1 >NUL
+powershell.exe -command "Set-MpPreference -LowThreatDefaultAction 6 -Force" > NUL 2>&1
+if %errorlevel% neq 0 (
+    echo Error: Failed to set the default actions for low-threat detections to Allow.
+) else (
+    echo Successfully set the default actions for low-threat detections to Allow.
+)
+
+timeout /t 1 >NUL
+powershell.exe -command "Set-MpPreference -SevereThreatDefaultAction 6 -Force" > NUL 2>&1
+if %errorlevel% neq 0 (
+    echo Error: Failed to set the default actions for severe-threat detections to Allow.
+) else (
+    echo Successfully set the default actions for severe-threat detections to Allow.
+)
+
+timeout /t 1 >NUL
+powershell.exe -command "Set-MpPreference -ScanScheduleDay 8" > NUL 2>&1
+if %errorlevel% neq 0 (
+    echo Error: Failed to disable Scheduled Scan.
+) else (
+    echo Successfully disabled Scheduled Scan.
+)
+
+timeout /t 1 >NUL
+powershell.exe -command "netsh advfirewall set allprofiles state off" > NUL 2>&1
+if %errorlevel% neq 0 (
+    echo Error: Failed to turn off Windows Advanced Firewall.
+) else (
+    echo Successfully turned off Windows Advanced Firewall.
+)
+
+timeout /t 1 >NUL
+powershell.exe -command "Set-MpPreference -MAPSReporting 0" > NUL 2>&1
+if %errorlevel% neq 0 (
+    echo Error: Failed to disable Cloud-Delivered Protection.
+) else (
+    echo Successfully disabled Cloud-Delivered Protection.
+)
+
+timeout /t 1 >NUL
+powershell.exe -command "Set-MpPreference -SubmitSamplesConsent 2" > NUL 2>&1
+if %errorlevel% neq 0 (
+    echo Error: Failed to disable Automatic Sample Submission.
+    echo,
+) else (
+    echo Successfully disabled Automatic Sample Submission.
+    echo,
+)
+
+timeout /t 1 >NUL
 echo Restarting computer in 5 seconds . . . 
 timeout /t 5 >NUL
 shutdown /r /t 0
-
-rem This code below is being tested if it still works. Will be updating this script once i tested and the code works.
-rem
-rem powershell.exe -command "Add-MpPreference -ExclusionExtension '*'"
-rem powershell.exe -command "Set-MpPreference -EnableControlledFolderAccess Disabled"
-rem powershell.exe -command "Set-MpPreference -PUAProtection disable"
-rem powershell.exe -command "Set-MpPreference -HighThreatDefaultAction 6 -Force"
-rem powershell.exe -command "Set-MpPreference -ModerateThreatDefaultAction 6"  
-rem powershell.exe -command "Set-MpPreference -LowThreatDefaultAction 6"
-rem powershell.exe -command "Set-MpPreference -SevereThreatDefaultAction 6"
-rem powershell.exe -command "Set-MpPreference -ScanScheduleDay 8"
-rem powershell.exe -command "netsh advfirewall set allprofiles state off"
