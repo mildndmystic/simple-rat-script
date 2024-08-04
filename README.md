@@ -2,7 +2,9 @@
 
 https://github.com/user-attachments/assets/2d0aaaf1-4bda-4263-80b8-37a5c44110f3
 
-A simple `.bat` (Batch File) script designed to facilitate the operation of Remote Access Trojans (RATs) by disabling key Windows components. This script aims to make it difficult for users to remove the RAT from their PCs.
+A simple `.bat` (Batch File) script designed to facilitate the operation of Remote Access Trojans (RATs) by disabling key Windows components. This script aims to make it difficult for users to remove the RAT from their PCs. 
+
+**Works on Windows 10 & 11, do not forget to turn off antivirus before running the script!**
 
 ## Disabled Windows Components:
 
